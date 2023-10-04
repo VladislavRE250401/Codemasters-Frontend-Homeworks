@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+      <form action="submit.html" method="post" target="_blank" style="font-family: 'Roboto', Arial, sans-serif; color: #FFFFFF;">
+        <fieldset>
+          <legend>Персональные данные</legend>
+          <ul>
+            <li>
+              <label for="name">Имя:*</label>
+              <input type="text" name="name" placeholder="Иванов Иван Иванович" id="name" required>
+            </li>
+			      <li>
+              <label for="birth_date">Дата рождения:</label>
+              <input type="date" name="birth_date" placeholder="27" id="birth_date">
+            </li>
+			      <li>
+              <label for="height">Рост:</label>
+              <input type="range" name="height" value="175" id="height" min="0" max="272" oninput="this.nextElementSibling.value = this.value">
+			        <output>60</output>
+            </li>
+            <li>
+              <label for="weight">Вес:</label>
+              <input type="number" name="weight" placeholder="65" id="weight" min="0" max="635">
+            </li>
+			      <li>
+              <label for="password">Пароль*:</label>
+              <input type="password" name="password" id="password" required>
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Контакты</legend>
+          <ul>
+            <li>
+              <label for="email">E-mail:*</label>
+              <input type="email" name="mail" placeholder="ivanov@gmail.com" id="email" required>
+            </li>
+            <li>
+              <label for="number">Телефон:*</label>
+              <input type="tel" name="phone" placeholder="+7 XXX XXX-XX-XX" id="number" pattern="[+7]{2} [0-9]{3} [0-9]{3}-[0-9]{2}-[0-9]{2}" required>
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>О себе</legend>
+          <textarea name="comment" placeholder="Расскажите обо всём, что для вас важно" id="message"></textarea>
+        </fieldset>
+        <fieldset>
+          <legend>Образование:*</legend>
+          <label for="degree">Уровень образования:*</label>
+          <select name="education" id="degree" required>
+            <option value="">Выберите вариант</option>
+            <optgroup label="Общее образование">
+              <option>Дошкольное образование</option>
+              <option>Начальное общее образование</option>
+              <option>Основное общее образование</option>
+              <option>Среднее общее образование</option>
+            </optgroup>
+            <optgroup label="Профессиональное образование">
+              <option>Среднее профессиональное образование</option>
+              <option>Высшее образование I степени</option>
+              <option>Высшее образование II степени</option>
+              <option>Высшее образование III степени</option>
+            </optgroup>
+          </select>
+          <ul id="">
+            <li>
+              <input type="checkbox" name="intensive-courses" id="courses" checked>
+              <label for="courses">Прохожу курсы</label>
+            </li>
+            <li>
+              <input type="checkbox" name="books" id="books">
+              <label for="books">Читаю книги</label>
+            </li>
+            <li>
+              <input type="checkbox" name="video" id="video">
+              <label for="video">Смотрю видео</label>
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Предпочтения</legend>
+          <ul>
+            <li>
+              <input type="radio" name="preference" id="front" value="frontend" checked>
+              <label for="front">Фронтенд-разработка</label>
+            </li>
+            <li>
+              <input type="radio" name="preference" id="back" value="backend">
+              <label for="back">Бэкенд-разработка</label>
+            </li>
+          </ul>
+          <label for="color">Любимый цвет</label>
+          <input type="color" id="color">
+        </fieldset>
+        <fieldset>
+          <legend>Кнопочки</legend>
+          <div style="display: flex;">
+            <button type="submit">Отправить</button>
+            <input type="image" name="image" src="assets/submit.svg" style="width: 5%; height: 5%;" alt="image missing"/>
+		        <button type="reset">Сбросить</button>
+            <button type="button">Ничего не делать</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Время и дата</legend>
+          <input type="month">
+          <input type="week">
+          <input type="time" step=3>
+        </fieldset>
+        <input type="hidden" value="Nothing">
+        <fieldset>
+          <legend>Медиа</legend>
+          <ul>
+              <li>
+                <a href="javascript:showImage()" onClick='this.innerHTML=="Показать изображение" ? this.innerHTML="Скрыть изображение" : this.innerHTML="Показать изображение"'>Показать изображение</a>
+              </li>
+              <img src="media/img.png" id="myImageId" alt="Столп света в пустоши" width="680" hidden=true>
+              <li>
+                <div style="display: flex; flex-direction: column;">
+                  <label for="music">Довериться чужому музыкальному вкусу</label>
+                  <audio src="media/Red_Hot_Chili_Peppers_-_Dani_California.mp3" id="music" type="audio/mp3" controls></audio>
+                </div>
+              </li>
+              <li>
+                <div style="display: flex; flex-direction: column;">
+                  <label for="video">Довериться чужому чувству юмора</label>
+                  <video muted width="320" height="240" id="video" controls>
+                    <source src="media/Lizard_flex.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                    <source src="media/Lizard_flex.webm" type='video/webm; codecs="vp8, vorbis"' />
+                  </video>
+                </div>
+              </li>
+            </ul>
+        </fieldset>
+		<p>* — Обязательные поля</p>
+      </form>
+      <script>
+        function showImage() {
+          var img = document.getElementById('myImageId');
+          if (img.hidden == true) img.hidden = false; 
+          else img.hidden = true;
+        }
+      </script>
+    </body>
+</html>
