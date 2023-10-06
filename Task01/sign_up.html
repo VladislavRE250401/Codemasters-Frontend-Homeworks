@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <!--Head всегда должен содержать title-->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +48,7 @@
         </fieldset>
         <fieldset>
           <legend>О себе</legend>
+          <!--Отсутствует label-->
           <textarea name="comment" placeholder="Расскажите обо всём, что для вас важно" id="message"></textarea>
         </fieldset>
         <fieldset>
@@ -108,6 +110,7 @@
         </fieldset>
         <fieldset>
           <legend>Время и дата</legend>
+          <!--У инпутов отсутствуют label'ы-->
           <input type="month">
           <input type="week">
           <input type="time" step=3>
@@ -131,6 +134,7 @@
                   <label for="video">Довериться чужому чувству юмора</label>
                   <video muted width="320" height="240" id="video" controls>
                     <source src="media/Lizard_flex.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                    <!--Нет такого файла-->
                     <source src="media/Lizard_flex.webm" type='video/webm; codecs="vp8, vorbis"' />
                   </video>
                 </div>
@@ -142,7 +146,7 @@
       <script>
         function showImage() {
           var img = document.getElementById('myImageId');
-          if (img.hidden == true) img.hidden = false; 
+          if (img.hidden == true) img.hidden = false;
           else img.hidden = true;
         }
       </script>
